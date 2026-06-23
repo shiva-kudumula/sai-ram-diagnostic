@@ -2,6 +2,10 @@
 
 A responsive diagnostic center website built using HTML, CSS, and JavaScript.
 
+## Live Demo
+
+https://shiva-kudumula.github.io/sai-ram-diagnostic/
+
 ## Features
 
 * Home page
