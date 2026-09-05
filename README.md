@@ -23,6 +23,7 @@ React, Vite, React Router, Axios, Bootstrap · Node.js, Express, JWT, bcrypt · 
 
 ```text
 frontend/                 React + Vite application
+  legacy-static/          Preserved original static HTML, CSS, and JavaScript
   src/components/         Navigation and route protection
   src/context/            Authentication state
   src/pages/              Public, patient, and admin pages
