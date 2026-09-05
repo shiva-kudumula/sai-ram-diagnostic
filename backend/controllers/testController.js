@@ -1,0 +1,7 @@
+import {validationResult} from 'express-validator';import Test from '../models/Test.js';
+const check=(req,res)=>{const e=validationResult(req);if(!e.isEmpty()){res.status(400).json({success:false,message:e.array()[0].msg});return true;}return false;};
+export async function getTests(req,res,next){try{const filter=req.query.includeUnavailable==='true'?{}:{isAvailable:true};const tests=await Test.find(filter).sort({category:1,name:1});res.json({success:true,tests});}catch(e){next(e)}}
+export async function getTest(req,res,next){try{const test=await Test.findById(req.params.id);if(!test)return res.status(404).json({success:false,message:'Test not found.'});res.json({success:true,test});}catch(e){next(e)}}
+export async function createTest(req,res,next){try{if(check(req,res))return;const test=await Test.create(req.body);res.status(201).json({success:true,test});}catch(e){if(e.code===11000)return res.status(409).json({success:false,message:'A test with this name already exists.'});next(e)}}
+export async function updateTest(req,res,next){try{if(check(req,res))return;const test=await Test.findByIdAndUpdate(req.params.id,req.body,{new:true,runValidators:true});if(!test)return res.status(404).json({success:false,message:'Test not found.'});res.json({success:true,test});}catch(e){next(e)}}
+export async function deleteTest(req,res,next){try{const test=await Test.findByIdAndDelete(req.params.id);if(!test)return res.status(404).json({success:false,message:'Test not found.'});res.json({success:true,message:'Test deleted.'});}catch(e){next(e)}}

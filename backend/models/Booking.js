@@ -1,0 +1,3 @@
+import mongoose from 'mongoose';
+const bookingSchema=new mongoose.Schema({patient:{type:mongoose.Schema.Types.ObjectId,ref:'User',required:true},patientName:{type:String,required:true,trim:true},phone:{type:String,required:true,trim:true},test:{type:mongoose.Schema.Types.ObjectId,ref:'Test',required:true},testName:{type:String,required:true},price:{type:Number,required:true},testDate:{type:Date,required:true},address:{type:String,required:true,trim:true},status:{type:String,enum:['Pending','Confirmed','Completed','Cancelled'],default:'Pending'}},{timestamps:true});
+export default mongoose.model('Booking',bookingSchema);
