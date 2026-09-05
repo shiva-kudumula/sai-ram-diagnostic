@@ -148,8 +148,41 @@
         <br>
         <a href="tel:+918790269555">+91 8790269555</a>
         <p>Email Us</p>
-        <a href="mailto:sairamlab.kosgi@gmail.com">sairamlab.kosgi@gmail.com</a>
+        <a href="mailto:kudumulashiva510@gmail.com">kudumulashiva510@gmail.com</a>
     </section>
+
+    <div class="booking-modal" id="bookingModal" aria-hidden="true">
+        <div class="booking-box" role="dialog" aria-modal="true" aria-labelledby="bookingTitle">
+            <button class="close-btn" type="button" id="closeBooking" aria-label="Close booking form">&times;</button>
+
+            <h2 id="bookingTitle">Book Test</h2>
+            <p id="selectedTestText">Selected test</p>
+
+            <form id="bookingForm" action="https://formsubmit.co/kudumulashiva510@gmail.com" method="POST">
+                <label for="patientName">Full Name</label>
+                <input type="text" id="patientName" name="Patient Name" required>
+
+                <label for="patientPhone">Phone Number</label>
+                <input type="tel" id="patientPhone" name="Phone Number" required>
+
+                <label for="bookingDate">Test Date</label>
+                <input type="date" id="bookingDate" name="Test Date" required>
+
+                <label for="patientAddress">Address</label>
+                <textarea id="patientAddress" name="Address" rows="3" required></textarea>
+
+                <input type="hidden" id="selectedTest" name="Selected Test">
+                <input type="hidden" id="selectedPrice" name="Price">
+                <input type="hidden" name="_subject" value="New Test Booking">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+
+                <button class="action-btn submit-btn" type="submit">Submit Booking</button>
+            </form>
+
+            <p class="booking-message" id="bookingMessage"></p>
+        </div>
+    </div>
 
     <footer class="footer">
         <p>&copy; 2026 Sai Ram Diagnostic Center. All rights reserved.</p>

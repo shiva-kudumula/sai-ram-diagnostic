@@ -67,7 +67,8 @@ body {
     color: #2575fc;
 }
 
-.back-btn {
+.back-btn,
+.submit-btn {
     margin-top: 20px;
     background-color: #2575fc;
     color: #fff;
@@ -147,13 +148,18 @@ body {
 .test-card {
     background-color: #fff;
     padding: 18px 12px;
+    border: 0;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    cursor: pointer;
+    transition: transform 0.3s ease, outline-color 0.3s ease;
 }
 
-.test-card:hover {
+.test-card:hover,
+.test-card:focus {
     transform: scale(1.04);
+    outline: 2px solid #2575fc;
+    outline-offset: 2px;
 }
 
 .test-card h4 {
@@ -195,6 +201,87 @@ body {
 
 .contact-section a:hover {
     color: #2575fc;
+}
+
+.booking-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.55);
+}
+
+.booking-modal.active {
+    display: flex;
+}
+
+.booking-box {
+    position: relative;
+    width: 100%;
+    max-width: 460px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background-color: #fff;
+    padding: 28px;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.booking-box h2 {
+    margin-bottom: 8px;
+    color: #2575fc;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.booking-box p {
+    margin-bottom: 18px;
+    color: #555;
+}
+
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    border: none;
+    background: transparent;
+    color: #333;
+    cursor: pointer;
+    font-size: 30px;
+    line-height: 1;
+}
+
+.booking-box label {
+    display: block;
+    margin-bottom: 6px;
+    color: #333;
+    font-weight: 600;
+}
+
+.booking-box input,
+.booking-box textarea {
+    width: 100%;
+    margin-bottom: 14px;
+    padding: 11px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font: inherit;
+}
+
+.booking-box input:focus,
+.booking-box textarea:focus {
+    outline: 2px solid #2575fc;
+    border-color: #2575fc;
+}
+
+.booking-message {
+    margin-top: 16px;
+    margin-bottom: 0;
+    color: #2575fc;
+    font-weight: 600;
 }
 
 .footer {
@@ -241,5 +328,9 @@ body {
 
     .tests-container {
         grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    }
+
+    .booking-box {
+        padding: 24px 18px;
     }
 }
